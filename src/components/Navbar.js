@@ -1,12 +1,10 @@
-import React from 'react'
-import PropTypes, { string } from 'prop-types'
-
+import React from "react";
+import PropTypes, { string } from "prop-types";
 
 export default function Navbar(props) {
   return (
-    
     <>
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -50,16 +48,13 @@ export default function Navbar(props) {
         </div>
       </nav>
     </>
-  )
+  );
 }
 
+Navbar.propTypes = { title: PropTypes.string, about: PropTypes.string };
 
-Navbar.propTypes = {title :PropTypes.string,
-  about:PropTypes.string
-}
-
-//  default values 
+//  default values
 Navbar.defaultProps = {
-  title: 'Stranger',
-  about: 'azhar'
+  title: "Stranger",
+  about: "azhar",
 };
