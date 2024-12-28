@@ -14,13 +14,25 @@ export default function TextForm(props) {
   };
 
   const handleClearClick = () => {
-    let newText = '';
+    let newText = "";
     setText(newText);
   };
   const handleOnChange = (event) => {
     // console.log("handleOnChange");
     setText(event.target.value);
   };
+
+  const handleLightTheam = () => {
+    document.querySelector("body").style.backgroundColor = "white";
+  };
+
+  const handleDarkTheam = () => {
+    document.querySelector("body").style.backgroundColor = "black";
+  };
+
+
+ 
+
   const [text, setText] = useState("");
   //   text = "enter here";//wrong way to change the state
   //   setText("new text");//correct way
@@ -40,12 +52,19 @@ export default function TextForm(props) {
           <button className="btn btn-primary mx-2" onClick={handleUpClick}>
             ConvertToUpperCase
           </button>
-          <button className="btn btn-dark mx-2" onClick={handleLowClick}>
+          <button className="btn btn-success mx-2" onClick={handleLowClick}>
             ConvertToLowerCase
           </button>
-          <button className="btn btn-dark mx-2" onClick={handleClearClick}>
+          <button className="btn btn-danger mx-2" onClick={handleClearClick}>
             Clear
           </button>
+          <button className="btn btn-light mx-2" onClick={handleLightTheam}>
+            Light
+          </button>
+          <button className="btn btn-dark mx-2" onClick={handleDarkTheam}>
+            Dark
+          </button>
+  
         </div>
       </div>
 
