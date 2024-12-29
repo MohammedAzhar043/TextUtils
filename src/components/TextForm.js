@@ -24,11 +24,23 @@ export default function TextForm(props) {
 
   const handleLightTheam = () => {
     document.querySelector("body").style.backgroundColor = "white";
+    document.querySelector("body").style.color = "black";
   };
 
   const handleDarkTheam = () => {
     document.querySelector("body").style.backgroundColor = "black";
+    document.querySelector("body").style.color = "white";
   };
+
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "))
+}
+  // const handleCopy = () =>{
+  //   document.getElementById('myBox');
+  //   text.select();
+  //   navigator.clipboard.writeText(text.value);
+  // }
 
 
  
@@ -64,6 +76,10 @@ export default function TextForm(props) {
           <button className="btn btn-dark mx-2" onClick={handleDarkTheam}>
             Dark
           </button>
+          {/* <button className="btn btn-dark mx-2" onClick={handleCopy}>
+            copy text
+          </button> */}
+          <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove extra spaces</button>
   
         </div>
       </div>
