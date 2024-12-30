@@ -57,7 +57,9 @@ export default function TextForm(props) {
         className="container"
         style={{ background: props.mode === "light" ? "dark" : "light" }}
       >
-        <h1>{props.heading} </h1>
+        <h1>
+          {props.heading}
+        </h1>
         <div className="mb-3">
           <label htmlFor="myBox" className="form-label"></label>
           <textarea
@@ -67,8 +69,8 @@ export default function TextForm(props) {
             rows="8"
             value={text}
             style={{
-              background: props.mode === "light" ? "grey" : "dark",
-              color: props.mode === "dark" ? "white" : "black",
+              background: props.mode === "black" ? "light" : "dark",
+              color: props.mode === "black" ? "light" : "black",
             }}
           />
           <button className="btn btn-primary mx-2" onClick={handleUpClick}>
@@ -97,7 +99,7 @@ export default function TextForm(props) {
 
       <div
         className="container my-3"
-        style={{ background: props.mode === "light" ? "grey" : "dark" }}
+        style={{ background: props.mode === "dark" ? "light" : "dark" }}
       >
         <h1>your text summary</h1>
         <p>
