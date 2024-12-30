@@ -50,8 +50,8 @@ export default function TextForm(props) {
   //   setText("new text");//correct way
   return (
     <>
-      <div className="container">
-        <h1>{props.heading} </h1>
+      <div className="container" style={{background:props.mode==='light'?'dark':'light'}}>
+        <h1>{props.heading } </h1>
         <div className="mb-3">
           <label htmlFor="myBox" className="form-label"></label>
           <textarea
@@ -60,6 +60,7 @@ export default function TextForm(props) {
             id="myBox"
             rows="8"
             value={text}
+            style={{background:props.mode==='light'?'grey':'dark',color:props.mode==='black'?'light':'dark'}}
           />
           <button className="btn btn-primary mx-2" onClick={handleUpClick}>
             ConvertToUpperCase
@@ -84,14 +85,14 @@ export default function TextForm(props) {
         </div>
       </div>
 
-      <div className="container my-3">
+      <div className="container my-3" style={{background:props.mode==='light'?'grey':'dark'}}>
         <h1>your text summary</h1>
         <p>
           {text.split(" ").length} words, {text.length} characters
         </p>
         <p>{0.008 * text.split(" ").length} minutes to read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"enter some thing in the text box to preview it"}</p>
       </div>
     </>
   );
