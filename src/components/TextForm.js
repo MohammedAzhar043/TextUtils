@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+
+  
   const handleUpClick = () => {
     // console.log("uppercase was clicked"+ text);
     let newText = text.toUpperCase();
@@ -57,7 +59,7 @@ export default function TextForm(props) {
         className="container"
         style={{ background: props.mode === "light" ? "dark" : "light" }}
       >
-        <h1>
+        <h1 className="m-2">
           {props.heading}
         </h1>
         <div className="mb-3">
@@ -73,25 +75,25 @@ export default function TextForm(props) {
               color: props.mode === "black" ? "light" : "black",
             }}
           />
-          <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+          <button disabled={text.length===0} className="btn btn-primary mx-2 my-2"  onClick={handleUpClick}>
             ConvertToUpperCase
           </button>
-          <button className="btn btn-success mx-2" onClick={handleLowClick}>
+          <button disabled={text.length===0} className="btn btn-success mx-2 my-2" onClick={handleLowClick}>
             ConvertToLowerCase
           </button>
-          <button className="btn btn-danger mx-2" onClick={handleClearClick}>
+          <button  disabled={text.length===0} className="btn btn-danger mx-2 my-2" onClick={handleClearClick}>
             Clear
           </button>
-          <button className="btn btn-light mx-2" onClick={handleLightTheam}>
+          <button className="btn btn-light mx-2 my-2" onClick={handleLightTheam}>
             Light
           </button>
-          <button className="btn btn-dark mx-2" onClick={handleDarkTheam}>
+          <button className="btn btn-dark mx-2 my-2" onClick={handleDarkTheam}>
             Dark
           </button>
-          {/* <button className="btn btn-dark mx-2" onClick={handleCopy}>
+          {/* <button className="btn btn-dark mx-2 my-2" onClick={handleCopy}>
             copy text
           </button> */}
-          <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>
+          <button  disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={handleExtraSpaces}>
             Remove extra spaces
           </button>
         </div>
@@ -101,16 +103,20 @@ export default function TextForm(props) {
         className="container my-3"
         style={{ background: props.mode === "dark" ? "light" : "dark" }}
       >
-        <h1>your text summary</h1>
+        <h1 >your text summary</h1>
         <p>
-          {text.split(" ").length} words, {text.length} characters
+          {text.split(" ").filter((element)=>{
+            return element.length!==0
+          }).length} words, {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} minutes to read</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{
+            return element.length!==0
+          }).length} minutes to read</p>
         <h2>Preview</h2>
         <p>
           {text.length > 0
             ? text
-            : "enter some thing in the text box to preview it"}
+            : "nothing to preview"}
         </p>
       </div>
     </>
