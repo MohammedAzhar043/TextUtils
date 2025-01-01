@@ -44,11 +44,11 @@ export default function TextForm(props) {
     setText(newText.join(" "));
     props.showAlert("the extra spaces are removed", "success");
   };
-  // const handleCopy = () =>{
-  //   document.getElementById('myBox');
-  //   text.select();
-  //   navigator.clipboard.writeText(text.value);
-  // }
+  const handleCopy = () =>{
+    // document.getElementById('myBox');
+    // text.select();
+    navigator.clipboard.writeText(text);
+  }
 
   const [text, setText] = useState("");
   //   text = "enter here";//wrong way to change the state
@@ -90,9 +90,9 @@ export default function TextForm(props) {
           <button className="btn btn-dark mx-2 my-2" onClick={handleDarkTheam}>
             Dark
           </button>
-          {/* <button className="btn btn-dark mx-2 my-2" onClick={handleCopy}>
+          <button   disabled={text.length===0} className="btn btn-success mx-2 my-2" onClick={handleCopy}>
             copy text
-          </button> */}
+          </button>
           <button  disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={handleExtraSpaces}>
             Remove extra spaces
           </button>
@@ -105,7 +105,7 @@ export default function TextForm(props) {
       >
         <h1 >your text summary</h1>
         <p>
-          {text.split(" ").filter((element)=>{
+          {text.split(/\s+/).filter((element)=>{
             return element.length!==0
           }).length} words, {text.length} characters
         </p>
